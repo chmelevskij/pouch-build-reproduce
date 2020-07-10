@@ -1,3 +1,3 @@
-import * as PouchDB from 'pouchdb';
+import PouchDB from 'pouchdb';
 
 window.pouch = new PouchDB('testy');

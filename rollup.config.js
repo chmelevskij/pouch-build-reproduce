@@ -8,7 +8,7 @@ export default [
   {
     input: "index.js",
     output: {
-      file: "dist/no-events.js",
+      file: "build/no-events.js",
       format: "esm"
     },
     plugins: [
@@ -28,7 +28,7 @@ export default [
   {
     input: "index.js",
     output: {
-      file: "dist/global-issue.js",
+      file: "build/global-issue.js",
       format: "esm"
     },
     plugins: [
@@ -45,7 +45,7 @@ export default [
   {
     input: "index.js",
     output: {
-      file: "dist/node-helpers.js",
+      file: "build/node-helpers.js",
       format: "esm"
     },
     plugins: [
