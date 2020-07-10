@@ -2,6 +2,9 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import globals from "rollup-plugin-node-globals";
 import builtins from "rollup-plugin-node-builtins";
+import { terser } from "rollup-plugin-terser";
+
+const dev = process.env.NODE_ENV === 'development';
 
 export default [
   // this ends up having `events` as unresolved dependency
@@ -15,7 +18,8 @@ export default [
       resolve({
         browser: true
       }),
-      commonjs()
+      commonjs(),
+      !dev && terser({ module: true }),
     ]
   },
 
@@ -36,7 +40,8 @@ export default [
         browser: true,
         preferBuiltins: false
       }),
-      commonjs()
+      commonjs(),
+      !dev && terser({ module: true }),
     ]
   },
 
@@ -54,7 +59,8 @@ export default [
       }),
       commonjs(),
       globals(),
-      builtins()
+      builtins(),
+      !dev && terser({ module: true }),
     ]
   }
 ];
